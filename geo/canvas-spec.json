@@ -1,0 +1,79 @@
+{
+  "viewBox": [0, 0, 4096, 4096],
+  "cx": 2048,
+  "cy": 2048,
+  "phi": 1.6180339887,
+  "vesica": {
+    "file": "geo/02-vesica.svg",
+    "c1": [1460, 2048],
+    "c2": [2636, 2048],
+    "r": 1176,
+    "lens": "M 2048,1030 A 1176 1176 0 0 1 2048,3066 A 1176 1176 0 0 1 2048,1030 Z",
+    "axis_v": [2048, 1030, 2048, 3066],
+    "axis_h": [1460, 2048, 2636, 2048],
+    "center_r": 160,
+    "note": "Snapped to GO3 ring r=1176. 6-fold construction. NOT GO3."
+  },
+  "sixfold": {
+    "file": "geo/03-sixfold-rosette.svg",
+    "r": 808,
+    "outer_r": 1616,
+    "fold": 6,
+    "step_deg": 60,
+    "centers": [
+      [2048, 2048],
+      [2856, 2048],
+      [2452, 2748],
+      [1644, 2748],
+      [1240, 2048],
+      [1644, 1348],
+      [2452, 1348]
+    ],
+    "hexagon": [2856, 2048, 2452, 2748, 1644, 2748, 1240, 2048, 1644, 1348, 2452, 1348],
+    "note": "6-fold lattice from r=808. NOT GO3. Layers stay separate."
+  },
+  "go3": {
+    "order": 7,
+    "rings": 13,
+    "outer_r": 1960,
+    "heptagon_r": 1248,
+    "tilt_deg": -90,
+    "rings_13": [88, 112, 136, 160, 200, 264, 368, 536, 808, 1176, 1212, 1248, 1960],
+    "published_r": [160, 200, 264, 368, 536, 808, 1176, 1212, 1248, 1960],
+    "inner_extra_r": [88, 112, 136],
+    "source_file": "go3_rosette.svg",
+    "src_copy": "geo/go3_rosette.src.svg",
+    "stills_reconstruct": false,
+    "box_file_mounted": false,
+    "merge_hold": true,
+    "required_bytes": 31755,
+    "required_sha256": "fa0ed56abc8db3416a45fe8a82869647e497f873bc25775b94f7553235654081",
+    "stills_ink_not_250x": "launch-visuals/stills-go3-ink.svg",
+    "note": "7-fold. FAIL-CLOSED: do not ship stills ink as the 250× reconstruct. Do not collapse 6=7. Do not minify. Do not merge until required_sha256 is the live seal file."
+  },
+  "phi_rect": {
+    "x": 381,
+    "y": 1018,
+    "w": 3335,
+    "h": 2061,
+    "inscribed_in_r": 1960,
+    "file": "geo/04-golden-ratio-overlay.svg"
+  },
+  "layers": ["go3", "vesica", "sixfold", "phi"],
+  "motion": {
+    "theta_hex": "2 * pi * t / 180s",
+    "theta_rosette": "-theta_hex / phi",
+    "reduced_motion": "animation none; geometry remains"
+  },
+  "blend": {
+    "light": "multiply",
+    "dark": "screen"
+  },
+  "stills": {
+    "go3": "launch-visuals/stills-go3.svg",
+    "vesica": "launch-visuals/stills-vesica.svg",
+    "sixfold": "launch-visuals/stills-sixfold.svg",
+    "composed": "launch-visuals/stills-composed.svg",
+    "note": "SVG recreations of the Visuals QP stills. Construction plates only. Not the 250× GO3 reconstruct. Not a Command Center screenshot."
+  }
+}
