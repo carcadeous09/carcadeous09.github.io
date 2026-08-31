@@ -73,7 +73,7 @@
 
     html {
       scroll-behavior: smooth;
-      background: var(--clock-void);
+      background: var(--bg);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -263,7 +263,7 @@
     .hero::after { right: 0; }
 
     .clock {
-      --face: 57%;
+      --face: 66%;
       position: relative;
       width: min(88vmin, 46rem);
       aspect-ratio: 1;
@@ -322,6 +322,8 @@
       color: #e0b43a;
       animation: spin-hex 180s linear infinite;
       transform-origin: 50% 50%;
+      -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,0.22) 0 20%, #000 36%);
+      mask-image: radial-gradient(circle, rgba(0,0,0,0.22) 0 20%, #000 36%);
     }
     .seal-vesica,
     .seal-sixfold {
@@ -362,6 +364,7 @@
       height: 100%;
       object-fit: contain;
       mix-blend-mode: multiply;
+      opacity: 1;
       animation: spin-rosette 180s linear infinite;
       z-index: 1;
     }
@@ -385,13 +388,13 @@
     }
     .clock-type .name {
       letter-spacing: 0.34em;
-      font-size: 132px;
+      font-size: 124px;
     }
     .clock-type .inscription {
-      letter-spacing: 0.08em;
-      font-size: 68px;
+      letter-spacing: 0.1em;
+      font-size: 78px;
       font-style: italic;
-      fill: #c9b06a;
+      fill: #d4b36a;
     }
 
     .clock-loud {
@@ -414,9 +417,9 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 6.4%;
-      height: 6.4%;
-      margin: -3.2% 0 0 -3.2%;
+      width: 4.6%;
+      height: 4.6%;
+      margin: -2.3% 0 0 -2.3%;
       border-radius: 50%;
       z-index: 6;
       pointer-events: none;
@@ -701,6 +704,39 @@
     footer.site .colophon { display: grid; gap: 0.35rem; }
     footer.site strong { color: var(--ink); font-weight: 600; }
 
+    :root[data-theme="light"] .hero {
+      background:
+        radial-gradient(ellipse 42% 36% at 50% 46%, rgba(110, 81, 16, 0.1), transparent 62%),
+        radial-gradient(ellipse 80% 70% at 50% 48%, #e4d6b8 0%, #f3ead8 74%);
+      color: #1c1710;
+      border-bottom-color: var(--line);
+    }
+    :root[data-theme="light"] .hero::before,
+    :root[data-theme="light"] .hero::after {
+      opacity: 0.22;
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 18px,
+          rgba(110, 81, 16, 0.08) 18px 19px
+        ),
+        linear-gradient(90deg, rgba(243, 234, 216, 0.2), rgba(201, 186, 154, 0.45), rgba(243, 234, 216, 0.2));
+    }
+    :root[data-theme="light"] header.site {
+      background: linear-gradient(180deg, rgba(243, 234, 216, 0.94), rgba(243, 234, 216, 0.12) 85%, transparent);
+      color: #1c1710;
+    }
+    :root[data-theme="light"] .brand,
+    :root[data-theme="light"] nav.primary a { color: #1c1710; }
+    :root[data-theme="light"] .brand-name span { color: #4f4739; }
+    :root[data-theme="light"] .theme-btn {
+      background: #faf6eb;
+      color: #1c1710;
+      border-color: #c9ba9a;
+    }
+    :root[data-theme="light"] .launch-pill { color: #4f4739; border-color: #c9ba9a; }
+    :root[data-theme="light"] .hero-caption .lede { color: #1c1710; }
+
     @media (max-width: 860px) {
       .ledger { grid-template-columns: 1fr; }
       .clock { width: min(92vmin, 36rem); }
@@ -892,8 +928,8 @@
 
         <svg class="clock-type" viewBox="0 0 4096 4096" aria-hidden="true" focusable="false">
           <defs>
-            <path id="arc-dream" d="M 768,2048 A 1280 1280 0 0 1 3328,2048"/>
-            <path id="arc-quote" d="M 3328,2048 A 1280 1280 0 0 1 768,2048"/>
+            <path id="arc-dream" d="M 528,2048 A 1520 1520 0 0 1 3568,2048"/>
+            <path id="arc-quote" d="M 3568,2048 A 1520 1520 0 0 1 528,2048"/>
           </defs>
           <text class="name">
             <textPath href="#arc-dream" startOffset="50%" text-anchor="middle">Dreamstiny</textPath>
