@@ -59,7 +59,8 @@
     "inscribed_in_r": 1960,
     "file": "geo/04-golden-ratio-overlay.svg"
   },
-  "layers": ["go3", "vesica", "sixfold", "phi"],
+  "face": "astronomical-clock",
+  "layers": ["housing", "chapter", "vesica", "sixfold", "go3", "phi", "type"],
   "motion": {
     "theta_hex": "2 * pi * t / 180s",
     "theta_rosette": "-theta_hex / phi",

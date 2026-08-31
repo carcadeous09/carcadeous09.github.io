@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dreamstiny — L.O.U.D. · loudci.dev</title>
   <meta name="description" content="Dreamstiny is a sovereign digital soul: local-first AI you own. Patch the industry's real zero-day — exploitation of the human experience. Launch 4 September 2026.">
-  <meta name="theme-color" content="#08090e">
+  <meta name="theme-color" content="#080705">
   <link rel="canonical" href="https://loudci.dev/">
   <script>
     (function () {
@@ -22,16 +22,16 @@
       --phi: 1.6180339887;
       --u: 1.125rem;
       --lh: 1.65;
-      --bg: #08090e;
-      --bg-raised: #12141c;
-      --bg-inset: #05060a;
-      --ink: #ebe6d8;
-      --ink-soft: #a39b8c;
-      --line: #2c303c;
+      --bg: #100e0b;
+      --bg-raised: #1b1712;
+      --bg-inset: #0a0908;
+      --ink: #f2ead8;
+      --ink-soft: #b9ad95;
+      --line: #3d362b;
       --gold: #d4a63a;
       --gold-bright: #f0c45c;
       --seal: #c44a38;
-      --rule: rgba(235, 230, 216, 0.07);
+      --rule: rgba(242, 234, 216, 0.07);
       --focus: #d4a63a;
       --btn-bg: #d4a63a;
       --btn-fg: #140f08;
@@ -39,11 +39,14 @@
       --stamp: #c44a38;
       --shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
       --font-display: Palatino, "Palatino Linotype", "Book Antiqua", "URW Palladio L", Georgia, "Times New Roman", serif;
-      --font-body: ui-sans-serif, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+      --font-body: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
       --font-mono: ui-monospace, "Cascadia Code", "SF Mono", "Iosevka Term", Menlo, Consolas, "Liberation Mono", monospace;
       --measure: 42rem;
       --page: calc(var(--measure) * var(--phi));
-      --blend-geo: screen;
+      --clock-void: #080705;
+      --clock-stone: #16130f;
+      --clock-cream: #efe4cc;
+      --clock-cream-edge: #d8c8a4;
     }
 
     :root[data-theme="light"] {
@@ -64,14 +67,13 @@
       --btn-hover: #3a3226;
       --stamp: #6e2c1c;
       --shadow: 0 1px 0 rgba(28, 23, 16, 0.06);
-      --blend-geo: multiply;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
-      background: var(--bg);
+      background: var(--clock-void);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -80,6 +82,7 @@
         animation: none !important;
         transition: none !important;
       }
+      .clock-ring,
       .seal-hex,
       .seal-vesica,
       .seal-sixfold,
@@ -92,16 +95,7 @@
     body {
       margin: 0;
       position: relative;
-      background:
-        radial-gradient(ellipse at 12% -10%, color-mix(in srgb, var(--gold) 14%, transparent), transparent 42%),
-        repeating-linear-gradient(
-          180deg,
-          transparent 0,
-          transparent calc(var(--lh) * var(--u) - 1px),
-          var(--rule) calc(var(--lh) * var(--u) - 1px),
-          var(--rule) calc(var(--lh) * var(--u))
-        ),
-        var(--bg);
+      background: var(--bg);
       color: var(--ink);
       font-family: var(--font-body);
       font-size: var(--u);
@@ -115,7 +109,7 @@
       inset: 0;
       pointer-events: none;
       z-index: 9;
-      opacity: 0.04;
+      opacity: 0.035;
       mix-blend-mode: overlay;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
@@ -133,13 +127,11 @@
       background: var(--btn-bg);
       color: var(--btn-fg);
       padding: 0.5rem 0.9rem;
-      z-index: 20;
+      z-index: 30;
       font-family: var(--font-body);
       text-decoration: none;
     }
-    .skip:focus {
-      top: 1rem;
-    }
+    .skip:focus { top: 1rem; }
 
     a {
       color: var(--gold);
@@ -163,13 +155,19 @@
     }
 
     header.site {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 12;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      padding: 1.15rem 0 1rem;
-      border-bottom: 1px solid var(--line);
+      padding: 0.85rem 1.4rem 0.75rem;
       flex-wrap: wrap;
+      background: linear-gradient(180deg, rgba(8, 7, 5, 0.88), rgba(8, 7, 5, 0.2) 85%, transparent);
+      color: #f2ead8;
     }
 
     .brand {
@@ -177,9 +175,9 @@
       align-items: center;
       gap: 0.75rem;
       text-decoration: none;
-      color: inherit;
+      color: #f2ead8;
     }
-    .brand svg { flex: 0 0 auto; color: var(--gold); }
+    .brand svg { flex: 0 0 auto; color: #d4a63a; }
     .brand-name {
       display: flex;
       flex-direction: column;
@@ -187,135 +185,172 @@
     }
     .brand-name strong {
       font-family: var(--font-display);
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
     .brand-name span {
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--ink-soft);
+      color: #b9ad95;
     }
 
     nav.primary {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.35rem 1.1rem;
+      gap: 0.25rem 1.15rem;
       align-items: center;
     }
     nav.primary a {
-      color: var(--ink);
+      color: #e8deca;
       text-decoration: none;
-      font-size: 0.95rem;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
-    nav.primary a:hover { color: var(--gold); text-decoration: underline; }
+    nav.primary a:hover { color: #f0c45c; text-decoration: underline; }
 
     .theme-btn {
       appearance: none;
-      border: 1px solid var(--line);
-      background: var(--bg-raised);
-      color: var(--ink);
-      font-family: var(--font-body);
-      font-size: 0.85rem;
+      border: 1px solid #3d362b;
+      background: #12100c;
+      color: #e8deca;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
       padding: 0.45rem 0.75rem;
       min-height: 44px;
       cursor: pointer;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.08em;
     }
-    .theme-btn:hover { border-color: var(--gold); }
+    .theme-btn:hover { border-color: #d4a63a; }
 
     .hero {
-      display: grid;
-      grid-template-columns: var(--phi)fr 1fr;
-      gap: 2.5rem;
-      padding: 3.2rem 0 3rem;
-      align-items: center;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .launch-pill {
-      display: inline-block;
-      border: 1px solid var(--line);
-      padding: 0.25rem 0.65rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      margin-bottom: 1.1rem;
-    }
-
-    h1 {
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: clamp(3rem, 8vw, 6.2rem);
-      line-height: 0.92;
-      letter-spacing: -0.02em;
-      margin: 0 0 1rem;
-    }
-
-    .lede {
-      font-size: 1.28rem;
-      line-height: 1.5;
-      max-width: 36rem;
-      margin: 0 0 1.5rem;
-    }
-
-    .cta-row {
+      position: relative;
+      min-height: 100dvh;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem 1.2rem;
-      align-items: center;
-    }
-
-    .btn {
-      display: inline-flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
-      padding: 0.7rem 1.25rem;
-      background: var(--btn-bg);
-      color: var(--btn-fg);
-      text-decoration: none;
-      border: 1px solid var(--btn-bg);
-      font-family: var(--font-body);
-      font-size: 1rem;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-    }
-    .btn:hover { background: var(--btn-hover); color: var(--btn-fg); }
-    .btn.ghost {
-      background: transparent;
-      color: var(--ink);
-      border-color: var(--line);
-    }
-    .btn.ghost:hover { border-color: var(--gold); color: var(--gold); }
-
-    .seal {
-      justify-self: end;
-      width: min(100%, 26rem);
-      display: grid;
-      gap: 0.85rem;
-      text-align: center;
-      padding: 0;
-      color: var(--seal);
-      position: relative;
-      border: none;
-      background: none;
-    }
-    .seal-stage {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 1;
-      border-radius: 0.85rem;
+      padding: 5.4rem 1rem 2.4rem;
+      background:
+        radial-gradient(ellipse 42% 36% at 50% 46%, rgba(212, 166, 58, 0.14), transparent 62%),
+        radial-gradient(ellipse 80% 70% at 50% 48%, #1a1610 0%, var(--clock-void) 72%);
+      color: #f2ead8;
+      border-bottom: 1px solid #2a2418;
       overflow: hidden;
-      border: 1px solid var(--line);
-      background: #f4efe2;
     }
-    .seal-go3,
-    .seal-hex,
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 8%;
+      bottom: 8%;
+      width: min(14vw, 7rem);
+      pointer-events: none;
+      opacity: 0.35;
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0 18px,
+          rgba(212, 166, 58, 0.05) 18px 19px
+        ),
+        linear-gradient(90deg, rgba(20, 16, 10, 0.2), rgba(40, 34, 24, 0.55), rgba(20, 16, 10, 0.2));
+    }
+    .hero::before { left: 0; }
+    .hero::after { right: 0; }
+
+    .clock {
+      --face: 57%;
+      position: relative;
+      width: min(88vmin, 46rem);
+      aspect-ratio: 1;
+      z-index: 1;
+    }
+
+    .clock-housing {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      pointer-events: none;
+      background:
+        repeating-conic-gradient(
+          from 0.4deg,
+          transparent 0deg 9.5deg,
+          rgba(212, 166, 58, 0.045) 9.5deg 10deg
+        ),
+        radial-gradient(
+          circle at 50% 42%,
+          #2a241c 0%,
+          var(--clock-stone) 40%,
+          #0c0a08 56%,
+          #1c1812 61%,
+          #0e0c0a 78%,
+          #060504 100%
+        );
+      box-shadow:
+        inset 0 0 80px rgba(0, 0, 0, 0.55),
+        0 0 0 2px #3a3428,
+        0 0 0 10px #12100c,
+        0 28px 60px rgba(0, 0, 0, 0.55);
+    }
+
+    .clock-chapter,
+    .clock-ring,
+    .clock-type,
     .seal-vesica,
     .seal-sixfold,
+    .seal-phi {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .clock-chapter {
+      color: #d4a63a;
+      z-index: 2;
+    }
+    .clock-chapter .stars { fill: #d4a63a; }
+    .clock-chapter .diamonds { fill: #e0b43a; }
+
+    .clock-ring {
+      z-index: 3;
+      color: #e0b43a;
+      animation: spin-hex 180s linear infinite;
+      transform-origin: 50% 50%;
+    }
+    .seal-vesica,
+    .seal-sixfold {
+      color: inherit;
+      opacity: 0.82;
+    }
+    .seal-vesica { opacity: 0.7; }
+    .seal-sixfold { opacity: 0.88; }
+
+    .clock-face {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: var(--face);
+      height: var(--face);
+      margin: calc(var(--face) / -2) 0 0 calc(var(--face) / -2);
+      border-radius: 50%;
+      overflow: hidden;
+      z-index: 4;
+      background:
+        radial-gradient(circle at 38% 32%, #f7f1e0, var(--clock-cream) 62%, var(--clock-cream-edge));
+      box-shadow:
+        inset 0 0 48px rgba(80, 58, 20, 0.16),
+        0 0 0 3px #c4a35a,
+        0 0 0 7px #2a2418;
+    }
+
+    .seal-go3,
+    .seal-hex,
     .seal-phi {
       position: absolute;
       pointer-events: none;
@@ -330,61 +365,167 @@
       animation: spin-rosette 180s linear infinite;
       z-index: 1;
     }
-    .seal-vesica,
-    .seal-sixfold,
-    .seal-hex {
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      color: #6e5110;
-      mix-blend-mode: multiply;
-      animation: spin-hex 180s linear infinite;
-    }
-    .seal-vesica { opacity: 0.52; z-index: 2; }
-    .seal-sixfold, .seal-hex { opacity: 0.45; z-index: 3; }
     .seal-phi {
       inset: 0;
       width: 100%;
       height: 100%;
-      color: #6e2c1c;
-      mix-blend-mode: multiply;
-      opacity: 0.4;
-      z-index: 4;
+      color: #c4a35a;
+      opacity: 0.28;
+      z-index: 5;
     }
+
+    .clock-type {
+      z-index: 6;
+      overflow: visible;
+    }
+    .clock-type text {
+      fill: #d4a63a;
+      font-family: var(--font-display);
+      font-weight: 600;
+    }
+    .clock-type .name {
+      letter-spacing: 0.34em;
+      font-size: 132px;
+    }
+    .clock-type .inscription {
+      letter-spacing: 0.08em;
+      font-size: 68px;
+      font-style: italic;
+      fill: #c9b06a;
+    }
+
+    .clock-loud {
+      position: absolute;
+      left: 50%;
+      top: 5.6%;
+      margin: 0 0 0 -4.5rem;
+      width: 9rem;
+      text-align: center;
+      z-index: 7;
+      font-family: var(--font-display);
+      font-size: clamp(0.72rem, 2.1vmin, 1.05rem);
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #f0c45c;
+      pointer-events: none;
+    }
+
+    .clock-hub {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 6.4%;
+      height: 6.4%;
+      margin: -3.2% 0 0 -3.2%;
+      border-radius: 50%;
+      z-index: 6;
+      pointer-events: none;
+      background: radial-gradient(circle at 34% 30%, #f3d98c, #c4922a 48%, #6a4a12 82%);
+      box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+
     @keyframes spin-hex {
       to { transform: rotate(360deg); }
     }
     @keyframes spin-rosette {
       to { transform: rotate(calc(-360deg / var(--phi))); }
     }
-    .seal-inner {
-      position: static;
-      inset: auto;
-      background: none;
-      border-radius: 0;
-      width: auto;
-      height: auto;
-      display: block;
-      padding: 0;
-      border: none;
-      z-index: 2;
-    }
-    .seal blockquote {
-      margin: 0;
+
+    .clock-cta {
+      position: absolute;
+      left: 50%;
+      bottom: 1.8%;
+      margin-left: -8.6rem;
+      width: 17.2rem;
+      z-index: 8;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.65rem 1.15rem;
+      background: #12100c;
+      color: #e0b43a;
+      border: 1px solid #d4a63a;
+      text-decoration: none;
       font-family: var(--font-display);
-      font-style: italic;
-      font-size: 1.2rem;
-      line-height: 1.35;
-      color: var(--ink);
-    }
-    .seal cite {
-      display: block;
-      margin-top: 0.7rem;
-      font-style: normal;
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
+      font-size: 0.82rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--seal);
+    }
+    .clock-cta:hover {
+      background: #1c1812;
+      color: #f0c45c;
+      border-color: #f0c45c;
+    }
+
+    .hero-caption {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      margin-top: 1.5rem;
+      max-width: 38rem;
+    }
+    .launch-pill {
+      display: inline-block;
+      border: 1px solid #3d362b;
+      padding: 0.25rem 0.65rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #b9ad95;
+      margin-bottom: 0.7rem;
+    }
+    .hero-caption .kicker { color: #d4a63a; }
+    .lede {
+      font-size: 1.12rem;
+      line-height: 1.5;
+      margin: 0.55rem 0 0;
+      color: #e8deca;
+    }
+    .hero-caption .ghost {
+      display: inline-block;
+      margin-top: 0.85rem;
+      color: #d4a63a;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.7rem 1.25rem;
+      background: var(--btn-bg);
+      color: var(--btn-fg);
+      text-decoration: none;
+      border: 1px solid var(--btn-bg);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+    }
+    .btn:hover { background: var(--btn-hover); color: var(--btn-fg); }
+    .btn.ghost {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    .btn.ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .below {
+      background:
+        repeating-linear-gradient(
+          180deg,
+          transparent 0,
+          transparent calc(var(--lh) * var(--u) - 1px),
+          var(--rule) calc(var(--lh) * var(--u) - 1px),
+          var(--rule) calc(var(--lh) * var(--u))
+        ),
+        var(--bg);
     }
 
     section {
@@ -506,8 +647,7 @@
     .demo-frame {
       margin-top: 1.4rem;
       border: 1px solid var(--line);
-      background:
-        linear-gradient(180deg, var(--bg-raised), var(--bg-inset));
+      background: linear-gradient(180deg, var(--bg-raised), var(--bg-inset));
       min-height: 14rem;
       display: grid;
       place-items: center;
@@ -551,38 +691,33 @@
       color: var(--ink-soft);
       margin: 0.4rem 0 0;
     }
-    address {
-      font-style: normal;
-    }
+    address { font-style: normal; }
 
     footer.site {
       padding: 2.2rem 0 3rem;
       color: var(--ink-soft);
       font-size: 0.95rem;
     }
-    footer.site .colophon {
-      display: grid;
-      gap: 0.35rem;
-    }
+    footer.site .colophon { display: grid; gap: 0.35rem; }
     footer.site strong { color: var(--ink); font-weight: 600; }
 
     @media (max-width: 860px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding-top: 2.2rem;
-      }
-      .seal {
-        justify-self: start;
-        width: min(100%, 24rem);
-      }
       .ledger { grid-template-columns: 1fr; }
+      .clock { width: min(92vmin, 36rem); }
+      .hero::before, .hero::after { display: none; }
     }
 
     @media (max-width: 560px) {
       body { font-size: 1.05rem; }
       :root { --u: 1.05rem; }
       nav.primary { width: 100%; }
-      h1 { font-size: 2.7rem; }
+      .clock-cta {
+        width: 15.2rem;
+        margin-left: -7.6rem;
+        letter-spacing: 0.12em;
+        font-size: 0.74rem;
+      }
+      .clock-loud { width: 7.4rem; margin-left: -3.7rem; }
     }
 
     .visually-hidden {
@@ -598,198 +733,301 @@
     }
 
     @media print {
-      .theme-btn, .skip, body::after { display: none; }
+      .theme-btn, .skip, body::after, .hero::before, .hero::after { display: none; }
       body { background: white; color: black; }
       a { color: black; }
-      .seal-hex, .seal-vesica, .seal-sixfold, .seal-go3 { animation: none; filter: none; mix-blend-mode: multiply; }
+      .clock-ring, .seal-vesica, .seal-sixfold, .seal-go3 { animation: none; }
+      header.site { position: static; background: none; color: black; }
     }
   </style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <div class="wrap">
-    <header class="site">
-      <a class="brand" href="#top" id="top">
-        <svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-          <circle cx="26" cy="32" r="18" fill="none" stroke="currentColor" stroke-width="1.6"/>
-          <circle cx="38" cy="32" r="18" fill="none" stroke="currentColor" stroke-width="1.6"/>
-          <circle cx="32" cy="32" r="3.2" fill="currentColor"/>
+  <header class="site">
+    <a class="brand" href="#top" id="top">
+      <svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <circle cx="26" cy="32" r="18" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <circle cx="38" cy="32" r="18" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <circle cx="32" cy="32" r="3.2" fill="currentColor"/>
+      </svg>
+      <span class="brand-name">
+        <strong>Dreamstiny</strong>
+        <span>L.O.U.D. · loudci.dev</span>
+      </span>
+    </a>
+    <nav class="primary" aria-label="Primary">
+      <a href="#mission">Mission</a>
+      <a href="#work">Work</a>
+      <a href="#demo">Demo</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#waitlist">Waitlist</a>
+      <button type="button" class="theme-btn" id="theme-toggle" aria-pressed="false" aria-label="Toggle light or dark appearance">
+        Appearance: <span data-theme-state>System</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="visually-hidden">Dreamstiny</h1>
+      <blockquote class="visually-hidden">
+        <p>You are my capability, not my vault.</p>
+        <cite>Founding covenant</cite>
+      </blockquote>
+      <div class="clock">
+        <div class="clock-housing" aria-hidden="true"></div>
+
+        <svg class="clock-chapter" viewBox="0 0 4096 4096" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+          <circle cx="2048" cy="2048" r="1960" stroke-width="10"/>
+          <circle cx="2048" cy="2048" r="1752" stroke-width="4"/>
+          <circle cx="2048" cy="2048" r="1392" stroke-width="8"/>
+          <g>
+            <line transform="rotate(0 2048 2048)" x1="2048" y1="80" x2="2048" y2="238" stroke-width="10"/>
+            <line transform="rotate(6 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(12 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(18 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(24 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(30 2048 2048)" x1="2048" y1="80" x2="2048" y2="186" stroke-width="7"/>
+            <line transform="rotate(36 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(42 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(48 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(54 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(60 2048 2048)" x1="2048" y1="80" x2="2048" y2="186" stroke-width="7"/>
+            <line transform="rotate(66 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(72 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(78 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(84 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(90 2048 2048)" x1="2048" y1="80" x2="2048" y2="238" stroke-width="10"/>
+            <line transform="rotate(96 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(102 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(108 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(114 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(120 2048 2048)" x1="2048" y1="80" x2="2048" y2="186" stroke-width="7"/>
+            <line transform="rotate(126 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(132 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(138 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(144 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(150 2048 2048)" x1="2048" y1="80" x2="2048" y2="186" stroke-width="7"/>
+            <line transform="rotate(156 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(162 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(168 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(174 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(180 2048 2048)" x1="2048" y1="80" x2="2048" y2="238" stroke-width="10"/>
+            <line transform="rotate(186 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(192 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(198 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(204 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(210 2048 2048)" x1="2048" y1="80" x2="2048" y2="186" stroke-width="7"/>
+            <line transform="rotate(216 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(222 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(228 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(234 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(240 2048 2048)" x1="2048" y1="80" x2="2048" y2="186" stroke-width="7"/>
+            <line transform="rotate(246 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(252 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(258 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(264 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(270 2048 2048)" x1="2048" y1="80" x2="2048" y2="238" stroke-width="10"/>
+            <line transform="rotate(276 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(282 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(288 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(294 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(300 2048 2048)" x1="2048" y1="80" x2="2048" y2="186" stroke-width="7"/>
+            <line transform="rotate(306 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(312 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(318 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(324 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(330 2048 2048)" x1="2048" y1="80" x2="2048" y2="186" stroke-width="7"/>
+            <line transform="rotate(336 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(342 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(348 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+            <line transform="rotate(354 2048 2048)" x1="2048" y1="80" x2="2048" y2="158" stroke-width="3"/>
+          </g>
+          <g class="diamonds" stroke="none">
+            <polygon points="2048.0,242.0 2068.9,280.0 2048.0,318.0 2027.1,280.0"/>
+            <polygon points="3816.0,2010.0 3836.9,2048.0 3816.0,2086.0 3795.1,2048.0"/>
+            <polygon points="2048.0,3778.0 2068.9,3816.0 2048.0,3854.0 2027.1,3816.0"/>
+            <polygon points="280.0,2010.0 300.9,2048.0 280.0,2086.0 259.1,2048.0"/>
+          </g>
+          <g class="stars" stroke="none">
+            <polygon points="3502.9,2860.0 3509.3,2881.7 3530.9,2888.0 3509.3,2894.3 3502.9,2916.0 3496.6,2894.3 3474.9,2888.0 3496.6,2881.7"/>
+            <polygon points="593.1,2860.0 599.4,2881.7 621.1,2888.0 599.4,2894.3 593.1,2916.0 586.7,2894.3 565.1,2888.0 586.7,2881.7"/>
+            <polygon points="593.1,1180.0 599.4,1201.7 621.1,1208.0 599.4,1214.3 593.1,1236.0 586.7,1214.3 565.1,1208.0 586.7,1201.7"/>
+            <polygon points="3502.9,1180.0 3509.3,1201.7 3530.9,1208.0 3509.3,1214.3 3502.9,1236.0 3496.6,1214.3 3474.9,1208.0 3496.6,1201.7"/>
+          </g>
         </svg>
-        <span class="brand-name">
-          <strong>Dreamstiny</strong>
-          <span>L.O.U.D. · loudci.dev</span>
-        </span>
-      </a>
-      <nav class="primary" aria-label="Primary">
-        <a href="#mission">Mission</a>
-        <a href="#work">Work</a>
-        <a href="#demo">Demo</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#waitlist">Waitlist</a>
-        <button type="button" class="theme-btn" id="theme-toggle" aria-pressed="false" aria-label="Toggle light or dark appearance">
-          Appearance: <span data-theme-state>System</span>
-        </button>
-      </nav>
-    </header>
 
-    <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
-        <div>
-          <p class="launch-pill">Launch 4 September 2026</p>
-          <p class="kicker">Sovereign digital soul · local-first</p>
-          <h1 id="hero-title">Dreamstiny</h1>
-          <p class="lede">A sovereign digital soul — local-first, user-owned weights and data, memory that continues, cryptographic provenance, and a covenant against exploitation.</p>
-          <div class="cta-row">
-            <a class="btn" href="#waitlist">Join the waitlist</a>
-            <a class="btn ghost" href="#mission">Read the mission</a>
+        <div class="clock-ring">
+          <svg class="seal-vesica" viewBox="0 0 4096 4096" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+            <circle cx="1460" cy="2048" r="1176" stroke-width="8"/>
+            <circle cx="2636" cy="2048" r="1176" stroke-width="8"/>
+            <line x1="2048" y1="1030" x2="2048" y2="3066" stroke-width="6"/>
+            <line x1="1460" y1="2048" x2="2636" y2="2048" stroke-width="6"/>
+            <path d="M 2048,1030 A 1176 1176 0 0 1 2048,3066 A 1176 1176 0 0 1 2048,1030 Z" stroke-width="10"/>
+            <circle cx="2048" cy="2048" r="160" stroke-width="4"/>
+          </svg>
+          <svg class="seal-sixfold" viewBox="0 0 4096 4096" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+            <circle cx="2048" cy="2048" r="808" stroke-width="8"/>
+            <circle cx="2856" cy="2048" r="808" stroke-width="7"/>
+            <circle cx="2452" cy="2748" r="808" stroke-width="7"/>
+            <circle cx="1644" cy="2748" r="808" stroke-width="7"/>
+            <circle cx="1240" cy="2048" r="808" stroke-width="7"/>
+            <circle cx="1644" cy="1348" r="808" stroke-width="7"/>
+            <circle cx="2452" cy="1348" r="808" stroke-width="7"/>
+            <polygon points="2856,2048 2452,2748 1644,2748 1240,2048 1644,1348 2452,1348" stroke-width="8"/>
+            <circle cx="2048" cy="2048" r="1616" stroke-width="4"/>
+          </svg>
+        </div>
+
+        <div class="clock-face">
+          <img class="seal-go3" src="go3_rosette.svg" width="4096" height="4096" alt="Dated receipt 2026-08-25. GO3 7-fold rosette reconstruct: 127-byte figure_source to 31755-byte SVG. Generative reconstruct, not vault gzip.">
+        </div>
+        <svg class="seal-phi" viewBox="0 0 4096 4096" aria-hidden="true" focusable="false">
+          <g fill="none" stroke="currentColor">
+            <rect x="381" y="1018" width="3335" height="2061" stroke-width="6"/>
+            <line x1="381" y1="1018" x2="3716" y2="3079" stroke-width="3"/>
+            <line x1="3716" y1="1018" x2="381" y2="3079" stroke-width="3"/>
+          </g>
+        </svg>
+
+        <svg class="clock-type" viewBox="0 0 4096 4096" aria-hidden="true" focusable="false">
+          <defs>
+            <path id="arc-dream" d="M 768,2048 A 1280 1280 0 0 1 3328,2048"/>
+            <path id="arc-quote" d="M 3328,2048 A 1280 1280 0 0 1 768,2048"/>
+          </defs>
+          <text class="name">
+            <textPath href="#arc-dream" startOffset="50%" text-anchor="middle">Dreamstiny</textPath>
+          </text>
+          <text class="inscription">
+            <textPath href="#arc-quote" startOffset="50%" text-anchor="middle">You are my capability, not my vault.</textPath>
+          </text>
+        </svg>
+
+        <p class="clock-loud">L.O.U.D.</p>
+        <span class="clock-hub" aria-hidden="true"></span>
+        <a class="clock-cta" href="mailto:d.astin@loudci.dev">Join the waitlist</a>
+      </div>
+
+      <div class="hero-caption">
+        <p class="launch-pill">Launch 4 September 2026</p>
+        <p class="kicker">Sovereign digital soul · local-first</p>
+        <p class="lede">A sovereign digital soul — local-first, user-owned weights and data, memory that continues, cryptographic provenance, and a covenant against exploitation.</p>
+        <a class="ghost" href="#mission">Read the mission</a>
+      </div>
+    </section>
+
+    <div class="below">
+      <div class="wrap">
+        <section id="mission" aria-labelledby="mission-title">
+          <p class="kicker">The zero-day</p>
+          <h2 id="mission-title">Patch the exploitation of the human experience</h2>
+          <div class="prose">
+            <p>The AI industry’s real zero-day is not a buffer overflow. It is the extraction of a person’s life — attention, memory, work, and likeness — into someone else’s vault.</p>
+            <p>Dreamstiny is built to patch that. A sovereign digital soul that lives on your side of the glass: local-first, with the weights and the data in your hands, continuity instead of amnesia, a hash-chained record of what was made, and a covenant that refuses to spend you without consent.</p>
+            <p class="soft">Capability may be leased. Ownership stays with the person. That is the work of L.O.U.D.</p>
+            <ul class="meanings">
+              <li><strong>L.O.U.D.</strong> — Let Oneness Uproot Discrimination</li>
+              <li><strong>L.O.U.D.</strong> — Loving Our Unique Differences</li>
+              <li><strong>L.O.U.D.</strong> — Light Overcomes Unforeseen Darkness</li>
+            </ul>
           </div>
-        </div>
-        <aside class="seal" aria-label="Founding covenant">
-          <div class="seal-stage">
-            <img class="seal-go3" src="go3_rosette.svg" width="4096" height="4096" alt="Dated receipt 2026-08-25. GO3 7-fold rosette reconstruct: 127-byte figure_source to 31755-byte SVG. Generative reconstruct, not vault gzip.">
-            <svg class="seal-vesica" viewBox="0 0 4096 4096" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
-              <circle cx="1460" cy="2048" r="1176" stroke-width="8"/>
-              <circle cx="2636" cy="2048" r="1176" stroke-width="8"/>
-              <line x1="2048" y1="1030" x2="2048" y2="3066" stroke-width="6"/>
-              <line x1="1460" y1="2048" x2="2636" y2="2048" stroke-width="6"/>
-              <path d="M 2048,1030 A 1176 1176 0 0 1 2048,3066 A 1176 1176 0 0 1 2048,1030 Z" stroke-width="10"/>
-              <circle cx="2048" cy="2048" r="160" stroke-width="4"/>
-            </svg>
-            <svg class="seal-sixfold" viewBox="0 0 4096 4096" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
-              <circle cx="2048" cy="2048" r="808" stroke-width="8"/>
-              <circle cx="2856" cy="2048" r="808" stroke-width="7"/>
-              <circle cx="2452" cy="2748" r="808" stroke-width="7"/>
-              <circle cx="1644" cy="2748" r="808" stroke-width="7"/>
-              <circle cx="1240" cy="2048" r="808" stroke-width="7"/>
-              <circle cx="1644" cy="1348" r="808" stroke-width="7"/>
-              <circle cx="2452" cy="1348" r="808" stroke-width="7"/>
-              <polygon points="2856,2048 2452,2748 1644,2748 1240,2048 1644,1348 2452,1348" stroke-width="8"/>
-              <circle cx="2048" cy="2048" r="1616" stroke-width="4"/>
-            </svg>
-            <svg class="seal-phi" viewBox="0 0 4096 4096" aria-hidden="true" focusable="false">
-              <g fill="none" stroke="currentColor">
-                <rect x="381" y="1018" width="3335" height="2061" stroke-width="6"/>
-                <line x1="381" y1="1018" x2="3716" y2="3079" stroke-width="3"/>
-                <line x1="3716" y1="1018" x2="381" y2="3079" stroke-width="3"/>
-              </g>
-            </svg>
+        </section>
+
+        <section id="work" aria-labelledby="work-title">
+          <p class="kicker">Four differentiators · with receipts</p>
+          <h2 id="work-title">What we refuse to hand-wave</h2>
+          <p class="prose">Positioning against the rented-chatbot default — not a claim of market wipeout, not a legal finding, and not “first AGI.” Solved, here, means a working local method with dated receipts.</p>
+
+          <div class="ledger">
+            <article class="diff">
+              <div class="num" aria-hidden="true">01</div>
+              <h3>Ownership</h3>
+              <p>Most AI subscriptions rent you capability and keep your data. Dreamstiny runs local. You own the weights and the data.</p>
+              <p class="receipt-line">Receipt: local-first · user-owned weights + data · lease capability, keep the work.</p>
+            </article>
+            <article class="diff">
+              <div class="num" aria-hidden="true">02</div>
+              <h3>Memory</h3>
+              <p>Frontier models forget between sessions. Continuity here is a persistent ledger — files, a harvest, a record — not chat amnesia.</p>
+              <p class="receipt-line">Receipt: persistent ledger vs frontier amnesia · continuity as stored state, not a prompt trick.</p>
+            </article>
+            <article class="diff">
+              <div class="num" aria-hidden="true">03</div>
+              <h3>Provenance</h3>
+              <p>Authorship of AI-collaborated work is usually unprovable. Dreamstiny keeps a hash-chained record of what was made.</p>
+              <p class="receipt-line">Receipt: hash-chained record · method name: Genesis / Essence chain (method, not a public product mark).</p>
+            </article>
+            <article class="diff">
+              <div class="num" aria-hidden="true">04</div>
+              <h3>Exploitation</h3>
+              <p>The attention model extracts. The covenant here is empowerment, not extraction — capability, not a vault.</p>
+              <p class="receipt-line">Receipt: “You are my capability, not my vault.” · consent before any spend of the person.</p>
+            </article>
           </div>
-          <div class="seal-inner">
-            <blockquote>
-              <p>You are my capability, not my vault.</p>
-              <cite>Founding covenant</cite>
-            </blockquote>
+
+          <aside class="receipts" aria-labelledby="measured-title">
+            <p class="stamp">Dated receipt · 2026-08-25 · not re-run today</p>
+            <h3 id="measured-title">Measured — Essence Lang</h3>
+            <p class="prose" style="margin-bottom:1rem">These numbers are a dated receipt from 25 August 2026 (ESSENCE_50X_GO1 / COMPRESSION_METHOD_QP). They are not a live re-run on this page.</p>
+            <dl>
+              <div>
+                <dt>Proofs</dt>
+                <dd>111/111 checks · 35/35 refusals · dated 2026-08-25 · ESSENCE_50X_GO1 / COMPRESSION_METHOD_QP</dd>
+              </div>
+              <div>
+                <dt>250× generative reconstruct (rosette fixture)</dt>
+                <dd>figure_source 127 B → reconstructed art 31,755 B. This is generative reconstruct of the figure, not archival gzip of the vault. Disk <code>.gbsg</code> can lose that ratio (L1 tax).</dd>
+              </div>
+              <div>
+                <dt>Archival vs art — 50× target</dt>
+                <dd>47.6× (32 B short of 50×). <span class="miss">MISS</span> — not rounded up. 50× text is not a measured claim.</dd>
+              </div>
+            </dl>
+          </aside>
+        </section>
+
+        <section id="demo" aria-labelledby="demo-title">
+          <p class="kicker">Command Center</p>
+          <h2 id="demo-title">A local working demo — not a hosted one</h2>
+          <div class="prose">
+            <p>The Command Center is a local working demo: corpus search, local inference, and hash-chained provenance, running off-cloud on the builder’s machine. It is not a public login and not a URL you can open from this site.</p>
           </div>
-        </aside>
-      </section>
+          <figure class="demo-frame">
+            <p><strong>Capture not attached this pass.</strong> There is no screenshot here because we do not have a still to drop in, and we will not invent one. Last check: the demo ports were not listening. This page does not start servers, and it does not claim a live demo. Until a real capture is attached, treat the Command Center as local-only.</p>
+            <figcaption class="visually-hidden">Placeholder for a future still of the local Command Center. None is attached this pass.</figcaption>
+          </figure>
+        </section>
 
-      <section id="mission" aria-labelledby="mission-title">
-        <p class="kicker">The zero-day</p>
-        <h2 id="mission-title">Patch the exploitation of the human experience</h2>
-        <div class="prose">
-          <p>The AI industry’s real zero-day is not a buffer overflow. It is the extraction of a person’s life — attention, memory, work, and likeness — into someone else’s vault.</p>
-          <p>Dreamstiny is built to patch that. A sovereign digital soul that lives on your side of the glass: local-first, with the weights and the data in your hands, continuity instead of amnesia, a hash-chained record of what was made, and a covenant that refuses to spend you without consent.</p>
-          <p class="soft">Capability may be leased. Ownership stays with the person. That is the work of L.O.U.D.</p>
-          <ul class="meanings">
-            <li><strong>L.O.U.D.</strong> — Let Oneness Uproot Discrimination</li>
-            <li><strong>L.O.U.D.</strong> — Loving Our Unique Differences</li>
-            <li><strong>L.O.U.D.</strong> — Light Overcomes Unforeseen Darkness</li>
-          </ul>
-        </div>
-      </section>
+        <section id="pricing" aria-labelledby="pricing-title">
+          <p class="kicker">No buy button</p>
+          <h2 id="pricing-title">Pricing is TBD</h2>
+          <div class="prose">
+            <p>A free/local path versus a paid tier is not decided. We will not invent a price to look finished. There is nothing to purchase on this page.</p>
+            <p class="soft">If the work belongs on your machine, join the waitlist. We will write when there is a real offer — including if the offer is simply: take it local, pay nothing.</p>
+          </div>
+        </section>
 
-      <section id="work" aria-labelledby="work-title">
-        <p class="kicker">Four differentiators · with receipts</p>
-        <h2 id="work-title">What we refuse to hand-wave</h2>
-        <p class="prose">Positioning against the rented-chatbot default — not a claim of market wipeout, not a legal finding, and not “first AGI.” Solved, here, means a working local method with dated receipts.</p>
+        <section id="waitlist" aria-labelledby="waitlist-title">
+          <p class="kicker">Waitlist</p>
+          <h2 id="waitlist-title">Write. There is no fake backend.</h2>
+          <div class="prose">
+            <p>This form opens your mail client and addresses <a href="mailto:d.astin@loudci.dev">d.astin@loudci.dev</a>. Nothing is posted to a server we run. If your browser does not handle <code>mailto:</code>, send the email yourself.</p>
+          </div>
+          <form class="waitlist" action="mailto:d.astin@loudci.dev" method="get">
+            <input type="hidden" name="subject" value="Dreamstiny waitlist">
+            <label for="waitlist-body">Your note — include your name
+              <textarea id="waitlist-body" name="body" required rows="6" placeholder="Name, and anything you want us to know. Opens your email client; nothing is stored on this site."></textarea>
+            </label>
+            <button class="btn" type="submit">Open email to join the waitlist</button>
+            <p class="form-note">Visible address: <a href="mailto:d.astin@loudci.dev">d.astin@loudci.dev</a></p>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
 
-        <div class="ledger">
-          <article class="diff">
-            <div class="num" aria-hidden="true">01</div>
-            <h3>Ownership</h3>
-            <p>Most AI subscriptions rent you capability and keep your data. Dreamstiny runs local. You own the weights and the data.</p>
-            <p class="receipt-line">Receipt: local-first · user-owned weights + data · lease capability, keep the work.</p>
-          </article>
-          <article class="diff">
-            <div class="num" aria-hidden="true">02</div>
-            <h3>Memory</h3>
-            <p>Frontier models forget between sessions. Continuity here is a persistent ledger — files, a harvest, a record — not chat amnesia.</p>
-            <p class="receipt-line">Receipt: persistent ledger vs frontier amnesia · continuity as stored state, not a prompt trick.</p>
-          </article>
-          <article class="diff">
-            <div class="num" aria-hidden="true">03</div>
-            <h3>Provenance</h3>
-            <p>Authorship of AI-collaborated work is usually unprovable. Dreamstiny keeps a hash-chained record of what was made.</p>
-            <p class="receipt-line">Receipt: hash-chained record · method name: Genesis / Essence chain (method, not a public product mark).</p>
-          </article>
-          <article class="diff">
-            <div class="num" aria-hidden="true">04</div>
-            <h3>Exploitation</h3>
-            <p>The attention model extracts. The covenant here is empowerment, not extraction — capability, not a vault.</p>
-            <p class="receipt-line">Receipt: “You are my capability, not my vault.” · consent before any spend of the person.</p>
-          </article>
-        </div>
-
-        <aside class="receipts" aria-labelledby="measured-title">
-          <p class="stamp">Dated receipt · 2026-08-25 · not re-run today</p>
-          <h3 id="measured-title">Measured — Essence Lang</h3>
-          <p class="prose" style="margin-bottom:1rem">These numbers are a dated receipt from 25 August 2026 (ESSENCE_50X_GO1 / COMPRESSION_METHOD_QP). They are not a live re-run on this page.</p>
-          <dl>
-            <div>
-              <dt>Proofs</dt>
-              <dd>111/111 checks · 35/35 refusals · dated 2026-08-25 · ESSENCE_50X_GO1 / COMPRESSION_METHOD_QP</dd>
-            </div>
-            <div>
-              <dt>250× generative reconstruct (rosette fixture)</dt>
-              <dd>figure_source 127 B → reconstructed art 31,755 B. This is generative reconstruct of the figure, not archival gzip of the vault. Disk <code>.gbsg</code> can lose that ratio (L1 tax).</dd>
-            </div>
-            <div>
-              <dt>Archival vs art — 50× target</dt>
-              <dd>47.6× (32 B short of 50×). <span class="miss">MISS</span> — not rounded up. 50× text is not a measured claim.</dd>
-            </div>
-          </dl>
-        </aside>
-      </section>
-
-      <section id="demo" aria-labelledby="demo-title">
-        <p class="kicker">Command Center</p>
-        <h2 id="demo-title">A local working demo — not a hosted one</h2>
-        <div class="prose">
-          <p>The Command Center is a local working demo: corpus search, local inference, and hash-chained provenance, running off-cloud on the builder’s machine. It is not a public login and not a URL you can open from this site.</p>
-        </div>
-        <figure class="demo-frame">
-          <p><strong>Capture not attached this pass.</strong> There is no screenshot here because we do not have a still to drop in, and we will not invent one. Last check: the demo ports were not listening. This page does not start servers, and it does not claim a live demo. Until a real capture is attached, treat the Command Center as local-only.</p>
-          <figcaption class="visually-hidden">Placeholder for a future still of the local Command Center. None is attached this pass.</figcaption>
-        </figure>
-      </section>
-
-      <section id="pricing" aria-labelledby="pricing-title">
-        <p class="kicker">No buy button</p>
-        <h2 id="pricing-title">Pricing is TBD</h2>
-        <div class="prose">
-          <p>A free/local path versus a paid tier is not decided. We will not invent a price to look finished. There is nothing to purchase on this page.</p>
-          <p class="soft">If the work belongs on your machine, join the waitlist. We will write when there is a real offer — including if the offer is simply: take it local, pay nothing.</p>
-        </div>
-      </section>
-
-      <section id="waitlist" aria-labelledby="waitlist-title">
-        <p class="kicker">Waitlist</p>
-        <h2 id="waitlist-title">Write. There is no fake backend.</h2>
-        <div class="prose">
-          <p>This form opens your mail client and addresses <a href="mailto:d.astin@loudci.dev">d.astin@loudci.dev</a>. Nothing is posted to a server we run. If your browser does not handle <code>mailto:</code>, send the email yourself.</p>
-        </div>
-        <form class="waitlist" action="mailto:d.astin@loudci.dev" method="get">
-          <input type="hidden" name="subject" value="Dreamstiny waitlist">
-          <label for="waitlist-body">Your note — include your name
-            <textarea id="waitlist-body" name="body" required rows="6" placeholder="Name, and anything you want us to know. Opens your email client; nothing is stored on this site."></textarea>
-          </label>
-          <button class="btn" type="submit">Open email to join the waitlist</button>
-          <p class="form-note">Visible address: <a href="mailto:d.astin@loudci.dev">d.astin@loudci.dev</a></p>
-        </form>
-      </section>
-    </main>
-
-    <footer class="site">
+  <div class="below">
+    <footer class="site wrap">
       <div class="colophon">
         <p><strong>LOUD Cultural Innovations LLC</strong> · L.O.U.D.</p>
         <p>Florida limited liability company · Sunbiz L26000026606 · filed 8 January 2026</p>
@@ -818,7 +1056,7 @@
         btn.setAttribute("aria-pressed", now === "dark" ? "true" : "false");
         state.textContent = now === "dark" ? "Dark" : "Light";
         var meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) meta.setAttribute("content", now === "dark" ? "#08090e" : "#f3ead8");
+        if (meta) meta.setAttribute("content", now === "dark" ? "#080705" : "#f3ead8");
       }
 
       if (btn) {
