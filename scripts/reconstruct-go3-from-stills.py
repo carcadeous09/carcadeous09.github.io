@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
-"""Stills reconstruct of the GO3 7-fold rosette.
+"""Stills-only GO3 ink (NOT the 250× reconstruct).
 
-The box file (31755 B, sha256 fa0ed56…) was not mounted on this VM.
-This writer follows the Visuals QP stills: 13 concentric rings, heptagon on
-r=1248, hollow nodes on the rings with 7-fold symmetry and a per-ring twist
-so the arms spiral. It is not a 6-fold flower of life and is not vault gzip.
-Do not minify the output. Do not re-emit this in the browser.
+Do not ship this output as go3_rosette.svg. The live seal file must be
+31755 B, sha256 fa0ed56abc8db3416a45fe8a82869647e497f873bc25775b94f7553235654081.
+This writer follows Visuals QP stills for launch-visuals/ plates only.
 """
 from __future__ import annotations
 
@@ -200,11 +198,9 @@ def main() -> None:
 
     black = go3_markup("#000")
     ink = go3_markup("currentColor")
-    write(ROOT / "go3_rosette.svg", black)
-    write(ROOT / "geo" / "go3_rosette.src.svg", black)
-    write(ROOT / "geo" / "05-go3-site-ink.svg", ink)
-
     stills = ROOT / "launch-visuals"
+    write(stills / "stills-go3-ink.svg", black)
+    write(ROOT / "geo" / "05-go3-site-ink.svg", ink)
     write(stills / "stills-go3.svg", cream_wrap(black))
     write(stills / "stills-vesica.svg", cream_wrap(VESICA))
     write(stills / "stills-sixfold.svg", cream_wrap(SIXFOLD))
@@ -212,13 +208,12 @@ def main() -> None:
     write(stills / "stills-composed.svg", composed)
     write(ROOT / "geo" / "06-composed-hero-static.svg", composed)
 
-    size = (ROOT / "go3_rosette.svg").stat().st_size
-    digest = hashlib.sha256((ROOT / "go3_rosette.svg").read_bytes()).hexdigest()
+    size = (stills / "stills-go3-ink.svg").stat().st_size
+    digest = hashlib.sha256((stills / "stills-go3-ink.svg").read_bytes()).hexdigest()
     print("---")
-    print(f"GO3 bytes {size} (target {TARGET_BYTES}, delta {size - TARGET_BYTES})")
-    print(f"GO3 sha256 {digest}")
-    print(f"target    {TARGET_SHA}")
-    print("match" if digest == TARGET_SHA else "HASH MISS — box file was not mounted; stills reconstruct shipped")
+    print(f"stills-go3-ink {size} B sha256 {digest}")
+    print("NOT the 250× reconstruct. Do not copy to go3_rosette.svg.")
+    print(f"required seal file: {TARGET_BYTES} B sha256 {TARGET_SHA}")
 
 
 if __name__ == "__main__":

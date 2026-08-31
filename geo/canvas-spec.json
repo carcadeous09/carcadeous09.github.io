@@ -43,13 +43,13 @@
     "inner_extra_r": [88, 112, 136],
     "source_file": "go3_rosette.svg",
     "src_copy": "geo/go3_rosette.src.svg",
-    "stills_reconstruct": true,
+    "stills_reconstruct": false,
     "box_file_mounted": false,
-    "box_target_bytes": 31755,
-    "box_target_sha256": "fa0ed56abc8db3416a45fe8a82869647e497f873bc25775b94f7553235654081",
-    "site_bytes": 47264,
-    "site_sha256": "dc5f422dc44fc87070af9185215b201cfa9507b8c389e66ebf48c9268e662639",
-    "note": "7-fold. Concentric rings + heptagon + hollow nodes. Do not collapse 6=7. Do not minify. Box SVG was not on this VM; site file is a stills reconstruct."
+    "merge_hold": true,
+    "required_bytes": 31755,
+    "required_sha256": "fa0ed56abc8db3416a45fe8a82869647e497f873bc25775b94f7553235654081",
+    "stills_ink_not_250x": "launch-visuals/stills-go3-ink.svg",
+    "note": "7-fold. FAIL-CLOSED: do not ship stills ink as the 250× reconstruct. Do not collapse 6=7. Do not minify. Do not merge until required_sha256 is the live seal file."
   },
   "phi_rect": {
     "x": 381,
@@ -74,6 +74,6 @@
     "vesica": "launch-visuals/stills-vesica.svg",
     "sixfold": "launch-visuals/stills-sixfold.svg",
     "composed": "launch-visuals/stills-composed.svg",
-    "note": "SVG recreations of the Visuals QP stills. Not a Command Center screenshot."
+    "note": "SVG recreations of the Visuals QP stills. Construction plates only. Not the 250× GO3 reconstruct. Not a Command Center screenshot."
   }
 }
