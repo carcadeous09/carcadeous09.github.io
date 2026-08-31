@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4096 4096" fill="none" stroke="currentColor">
+<rect x="48" y="48" width="4000" height="4000" rx="0" stroke-width="4"/>
+<line x1="0" y1="2048" x2="4096" y2="2048" stroke-width="4"/>
+<line x1="2048" y1="0" x2="2048" y2="4096" stroke-width="4"/>
+<circle cx="2048" cy="2048" r="160" stroke-width="4"/>
+<line x1="2208" y1="2024" x2="2208" y2="2072" stroke-width="4"/>
+<circle cx="2048" cy="2048" r="200" stroke-width="4"/>
+<line x1="2248" y1="2024" x2="2248" y2="2072" stroke-width="4"/>
+<circle cx="2048" cy="2048" r="264" stroke-width="4"/>
+<line x1="2312" y1="2024" x2="2312" y2="2072" stroke-width="4"/>
+<circle cx="2048" cy="2048" r="368" stroke-width="4"/>
+<line x1="2416" y1="2024" x2="2416" y2="2072" stroke-width="4"/>
+<circle cx="2048" cy="2048" r="536" stroke-width="4"/>
+<line x1="2584" y1="2024" x2="2584" y2="2072" stroke-width="4"/>
+<circle cx="2048" cy="2048" r="808" stroke-width="4"/>
+<line x1="2856" y1="2024" x2="2856" y2="2072" stroke-width="4"/>
+<circle cx="2048" cy="2048" r="1176" stroke-width="4"/>
+<line x1="3224" y1="2024" x2="3224" y2="2072" stroke-width="4"/>
+<circle cx="2048" cy="2048" r="1212" stroke-width="4"/>
+<line x1="3260" y1="2024" x2="3260" y2="2072" stroke-width="4"/>
+<circle cx="2048" cy="2048" r="1248" stroke-width="4"/>
+<line x1="3296" y1="2024" x2="3296" y2="2072" stroke-width="4"/>
+<circle cx="2048" cy="2048" r="1960" stroke-width="4"/>
+<line x1="4008" y1="2024" x2="4008" y2="2072" stroke-width="4"/>
+</svg>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dreamstiny — L.O.U.D. · loudci.dev</title>
   <meta name="description" content="Dreamstiny is a sovereign digital soul: local-first AI you own. Patch the industry's real zero-day — exploitation of the human experience. Launch 4 September 2026.">
-  <meta name="theme-color" content="#f3ead8">
+  <meta name="theme-color" content="#08090e">
   <link rel="canonical" href="https://loudci.dev/">
   <script>
     (function () {
@@ -15,8 +15,38 @@
       } catch (e) {}
     })();
   </script>
+  <link rel="stylesheet" href="geo/reduced-motion.css">
   <style>
     :root {
+      color-scheme: dark;
+      --phi: 1.6180339887;
+      --u: 1.125rem;
+      --lh: 1.65;
+      --bg: #08090e;
+      --bg-raised: #12141c;
+      --bg-inset: #05060a;
+      --ink: #ebe6d8;
+      --ink-soft: #a39b8c;
+      --line: #2c303c;
+      --gold: #d4a63a;
+      --gold-bright: #f0c45c;
+      --seal: #c44a38;
+      --rule: rgba(235, 230, 216, 0.07);
+      --focus: #d4a63a;
+      --btn-bg: #d4a63a;
+      --btn-fg: #140f08;
+      --btn-hover: #f0c45c;
+      --stamp: #c44a38;
+      --shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+      --font-display: Palatino, "Palatino Linotype", "Book Antiqua", "URW Palladio L", Georgia, "Times New Roman", serif;
+      --font-body: ui-sans-serif, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, "Cascadia Code", "SF Mono", "Iosevka Term", Menlo, Consolas, "Liberation Mono", monospace;
+      --measure: 42rem;
+      --page: calc(var(--measure) * var(--phi));
+      --blend-geo: screen;
+    }
+
+    :root[data-theme="light"] {
       color-scheme: light;
       --bg: #f3ead8;
       --bg-raised: #faf6eb;
@@ -34,53 +64,7 @@
       --btn-hover: #3a3226;
       --stamp: #6e2c1c;
       --shadow: 0 1px 0 rgba(28, 23, 16, 0.06);
-      --font-display: Palatino, "Palatino Linotype", "Book Antiqua", "URW Palladio L", "Palatino LT STD", Georgia, "Times New Roman", serif;
-      --font-body: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
-      --font-mono: ui-monospace, "Cascadia Code", "SF Mono", "Iosevka Term", Menlo, Consolas, "Liberation Mono", monospace;
-      --measure: 42rem;
-      --page: 72rem;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        color-scheme: dark;
-        --bg: #100e0b;
-        --bg-raised: #1b1712;
-        --bg-inset: #0a0908;
-        --ink: #f2ead8;
-        --ink-soft: #b9ad95;
-        --line: #3d362b;
-        --gold: #e0b43a;
-        --gold-bright: #f0cc66;
-        --seal: #e08a70;
-        --rule: rgba(242, 234, 216, 0.07);
-        --focus: #e0b43a;
-        --btn-bg: #e0b43a;
-        --btn-fg: #140f08;
-        --btn-hover: #f0cc66;
-        --stamp: #e08a70;
-        --shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
-      }
-    }
-
-    :root[data-theme="dark"] {
-      color-scheme: dark;
-      --bg: #100e0b;
-      --bg-raised: #1b1712;
-      --bg-inset: #0a0908;
-      --ink: #f2ead8;
-      --ink-soft: #b9ad95;
-      --line: #3d362b;
-      --gold: #e0b43a;
-      --gold-bright: #f0cc66;
-      --seal: #e08a70;
-      --rule: rgba(242, 234, 216, 0.07);
-      --focus: #e0b43a;
-      --btn-bg: #e0b43a;
-      --btn-fg: #140f08;
-      --btn-hover: #f0cc66;
-      --stamp: #e08a70;
-      --shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+      --blend-geo: multiply;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -96,25 +80,42 @@
         animation: none !important;
         transition: none !important;
       }
+      .seal-hex,
+      .seal-go3 {
+        animation: none !important;
+        transform: none !important;
+      }
     }
 
     body {
       margin: 0;
+      position: relative;
       background:
-        radial-gradient(ellipse at 12% -10%, color-mix(in srgb, var(--gold) 12%, transparent), transparent 42%),
+        radial-gradient(ellipse at 12% -10%, color-mix(in srgb, var(--gold) 14%, transparent), transparent 42%),
         repeating-linear-gradient(
           180deg,
           transparent 0,
-          transparent 27px,
-          var(--rule) 27px,
-          var(--rule) 28px
+          transparent calc(var(--lh) * var(--u) - 1px),
+          var(--rule) calc(var(--lh) * var(--u) - 1px),
+          var(--rule) calc(var(--lh) * var(--u))
         ),
         var(--bg);
       color: var(--ink);
       font-family: var(--font-body);
-      font-size: 1.125rem;
-      line-height: 1.65;
+      font-size: var(--u);
+      line-height: var(--lh);
       letter-spacing: 0.01em;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9;
+      opacity: 0.04;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
     :focus { outline: none; }
@@ -224,7 +225,7 @@
 
     .hero {
       display: grid;
-      grid-template-columns: 1.4fr 0.8fr;
+      grid-template-columns: var(--phi)fr 1fr;
       gap: 2.5rem;
       padding: 3.2rem 0 3rem;
       align-items: center;
@@ -290,28 +291,71 @@
 
     .seal {
       justify-self: end;
-      width: min(100%, 18rem);
+      width: min(100%, 22rem);
       aspect-ratio: 1;
-      border: 1px solid var(--seal);
+      border: none;
+      background: none;
       border-radius: 50%;
       display: grid;
       place-items: center;
       text-align: center;
-      padding: 1.8rem;
+      padding: 0;
       color: var(--seal);
       position: relative;
-      background:
-        repeating-conic-gradient(from 0deg, transparent 0 8deg, color-mix(in srgb, var(--seal) 18%, transparent) 8deg 9deg);
     }
-    .seal-inner {
-      background: var(--bg);
-      border-radius: 50%;
+    .seal-stage {
+      position: relative;
       width: 100%;
       height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid var(--seal);
+      background: var(--bg-inset);
+    }
+    .seal-hex,
+    .seal-go3 {
+      position: absolute;
+      inset: 4%;
+      width: 92%;
+      height: 92%;
+      pointer-events: none;
+      transform-origin: 50% 50%;
+    }
+    .seal-hex {
+      color: var(--gold);
+      mix-blend-mode: var(--blend-geo);
+      opacity: 0.72;
+      animation: spin-hex 180s linear infinite;
+    }
+    .seal-go3 {
+      object-fit: contain;
+      mix-blend-mode: var(--blend-geo);
+      animation: spin-rosette 180s linear infinite;
+    }
+    :root:not([data-theme="light"]) .seal-go3 {
+      filter: invert(1);
+    }
+    :root[data-theme="light"] .seal-go3 {
+      filter: none;
+    }
+    @keyframes spin-hex {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes spin-rosette {
+      to { transform: rotate(calc(-360deg / var(--phi))); }
+    }
+    .seal-inner {
+      position: absolute;
+      inset: 29%;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      border-radius: 50%;
+      width: auto;
+      height: auto;
       display: grid;
       place-items: center;
-      padding: 1.4rem;
+      padding: 1.1rem;
       border: 1px solid color-mix(in srgb, var(--seal) 45%, transparent);
+      z-index: 2;
     }
     .seal blockquote {
       margin: 0;
@@ -517,13 +561,14 @@
       }
       .seal {
         justify-self: start;
-        width: min(100%, 16rem);
+        width: min(100%, 20rem);
       }
       .ledger { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 560px) {
       body { font-size: 1.05rem; }
+      :root { --u: 1.05rem; }
       nav.primary { width: 100%; }
       h1 { font-size: 2.7rem; }
     }
@@ -541,9 +586,10 @@
     }
 
     @media print {
-      .theme-btn, .skip { display: none; }
+      .theme-btn, .skip, body::after { display: none; }
       body { background: white; color: black; }
       a { color: black; }
+      .seal-hex, .seal-go3 { animation: none; filter: none; mix-blend-mode: multiply; }
     }
   </style>
 </head>
@@ -587,11 +633,28 @@
           </div>
         </div>
         <aside class="seal" aria-label="Founding covenant">
-          <div class="seal-inner">
-            <blockquote>
-              <p>You are my capability, not my vault.</p>
-              <cite>Founding covenant</cite>
-            </blockquote>
+          <div class="seal-stage">
+            <svg class="seal-hex" viewBox="0 0 4096 4096" aria-hidden="true" focusable="false">
+              <g fill="none" stroke="currentColor" stroke-width="8">
+                <circle cx="1460" cy="2048" r="1176"/>
+                <circle cx="2636" cy="2048" r="1176"/>
+                <circle cx="2048" cy="2048" r="808"/>
+                <circle transform="rotate(0 2048 2048)" cx="2048" cy="1240" r="808"/>
+                <circle transform="rotate(60 2048 2048)" cx="2048" cy="1240" r="808"/>
+                <circle transform="rotate(120 2048 2048)" cx="2048" cy="1240" r="808"/>
+                <circle transform="rotate(180 2048 2048)" cx="2048" cy="1240" r="808"/>
+                <circle transform="rotate(240 2048 2048)" cx="2048" cy="1240" r="808"/>
+                <circle transform="rotate(300 2048 2048)" cx="2048" cy="1240" r="808"/>
+                <polygon points="2048.0000,1240.0000 2747.7025,1644.0000 2747.7025,2452.0000 2048.0000,2856.0000 1348.2975,2452.0000 1348.2975,1644.0000"/>
+              </g>
+            </svg>
+            <img class="seal-go3" src="go3_rosette.svg" width="4096" height="4096" alt="Dated receipt 2026-08-25. GO3 7-fold rosette reconstruct: 127-byte figure_source to 31755-byte SVG. Generative reconstruct, not vault gzip.">
+            <div class="seal-inner">
+              <blockquote>
+                <p>You are my capability, not my vault.</p>
+                <cite>Founding covenant</cite>
+              </blockquote>
+            </div>
           </div>
         </aside>
       </section>
@@ -722,7 +785,7 @@
       function effective() {
         var attr = root.getAttribute("data-theme");
         if (attr === "light" || attr === "dark") return attr;
-        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        return "dark";
       }
 
       function sync() {
@@ -731,7 +794,7 @@
         btn.setAttribute("aria-pressed", now === "dark" ? "true" : "false");
         state.textContent = now === "dark" ? "Dark" : "Light";
         var meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) meta.setAttribute("content", now === "dark" ? "#100e0b" : "#f3ead8");
+        if (meta) meta.setAttribute("content", now === "dark" ? "#08090e" : "#f3ead8");
       }
 
       if (btn) {

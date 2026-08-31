@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4096 4096" fill="none" stroke="currentColor" stroke-width="8">
+<circle cx="2048" cy="2048" r="808"/>
+<circle transform="rotate(0 2048 2048)" cx="2048" cy="1240" r="808"/>
+<circle transform="rotate(60 2048 2048)" cx="2048" cy="1240" r="808"/>
+<circle transform="rotate(120 2048 2048)" cx="2048" cy="1240" r="808"/>
+<circle transform="rotate(180 2048 2048)" cx="2048" cy="1240" r="808"/>
+<circle transform="rotate(240 2048 2048)" cx="2048" cy="1240" r="808"/>
+<circle transform="rotate(300 2048 2048)" cx="2048" cy="1240" r="808"/>
+<polygon points="2048.0000,1240.0000 2747.7485,1644.0000 2747.7485,2452.0000 2048.0000,2856.0000 1348.2515,2452.0000 1348.2515,1644.0000"/>
+</svg>

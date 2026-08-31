@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4096 4096" fill="none" stroke="currentColor" stroke-width="8">
+<circle cx="1460" cy="2048" r="1176"/>
+<circle cx="2636" cy="2048" r="1176"/>
+<line x1="1460" y1="2048" x2="2636" y2="2048" stroke-width="4"/>
+<circle cx="2048" cy="2048" r="8" fill="currentColor" stroke="none"/>
+<circle cx="2048" cy="2048" r="808"/>
+<circle transform="rotate(0 2048 2048)" cx="2048" cy="1240" r="808"/>
+<circle transform="rotate(60 2048 2048)" cx="2048" cy="1240" r="808"/>
+<circle transform="rotate(120 2048 2048)" cx="2048" cy="1240" r="808"/>
+<circle transform="rotate(180 2048 2048)" cx="2048" cy="1240" r="808"/>
+<circle transform="rotate(240 2048 2048)" cx="2048" cy="1240" r="808"/>
+<circle transform="rotate(300 2048 2048)" cx="2048" cy="1240" r="808"/>
+<polygon points="2048.0000,1240.0000 2747.7485,1644.0000 2747.7485,2452.0000 2048.0000,2856.0000 1348.2515,2452.0000 1348.2515,1644.0000"/>
+<circle cx="2048" cy="2048" r="1960"/>
+<rect x="380.5000" y="1017.5000" width="3335" height="2061"/>
+<rect x="380.5000" y="1017.5000" width="2061" height="2061"/>
+<line x1="2441.5000" y1="1017.5000" x2="3715.5000" y2="3078.5000" stroke-width="4"/>
+</svg>

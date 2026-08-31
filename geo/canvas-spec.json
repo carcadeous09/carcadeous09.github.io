@@ -1,0 +1,71 @@
+{
+  "viewBox": [
+    0,
+    0,
+    4096,
+    4096
+  ],
+  "cx": 2048,
+  "cy": 2048,
+  "phi": 1.6180339887,
+  "vesica": {
+    "c1": [
+      1460,
+      2048
+    ],
+    "c2": [
+      2636,
+      2048
+    ],
+    "r": 1176,
+    "note": "6-fold hex lattice. NOT GO3."
+  },
+  "hex": {
+    "r": 808,
+    "fold": 6,
+    "step_deg": 60,
+    "note": "6-fold is NOT GO3."
+  },
+  "go3": {
+    "order": 7,
+    "rings": 13,
+    "spiral": 233,
+    "outer_r": 1960,
+    "rings_13": [
+      96,
+      104,
+      112,
+      120,
+      136,
+      160,
+      200,
+      264,
+      368,
+      536,
+      808,
+      1248,
+      1960
+    ],
+    "also_r": [
+      1176,
+      1212
+    ],
+    "tilt_deg": -77.14285714285714,
+    "source_file": "go3_rosette.svg",
+    "note": "7-fold. Do not collapse 6=7."
+  },
+  "phi_rect": {
+    "w": 3335,
+    "h": 2061,
+    "inscribed_in_r": 1960
+  },
+  "motion": {
+    "theta_hex": "2 * pi * t / 180s",
+    "theta_rosette": "-theta_hex / phi",
+    "reduced_motion": "animation none; geometry remains"
+  },
+  "blend": {
+    "light": "multiply",
+    "dark": "screen"
+  }
+}

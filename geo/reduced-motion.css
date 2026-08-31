@@ -1,0 +1,8 @@
+/* prefers-reduced-motion: rotation STOPPED; geometry remains */
+@media (prefers-reduced-motion: reduce) {
+  .seal-hex,
+  .seal-go3 {
+    animation: none !important;
+    transform: none !important;
+  }
+}
