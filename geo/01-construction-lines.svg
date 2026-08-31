@@ -2,6 +2,12 @@
 <rect x="48" y="48" width="4000" height="4000" rx="0" stroke-width="4"/>
 <line x1="0" y1="2048" x2="4096" y2="2048" stroke-width="4"/>
 <line x1="2048" y1="0" x2="2048" y2="4096" stroke-width="4"/>
+<circle cx="2048" cy="2048" r="88" stroke-width="4"/>
+<line x1="2136" y1="2024" x2="2136" y2="2072" stroke-width="4"/>
+<circle cx="2048" cy="2048" r="112" stroke-width="4"/>
+<line x1="2160" y1="2024" x2="2160" y2="2072" stroke-width="4"/>
+<circle cx="2048" cy="2048" r="136" stroke-width="4"/>
+<line x1="2184" y1="2024" x2="2184" y2="2072" stroke-width="4"/>
 <circle cx="2048" cy="2048" r="160" stroke-width="4"/>
 <line x1="2208" y1="2024" x2="2208" y2="2072" stroke-width="4"/>
 <circle cx="2048" cy="2048" r="200" stroke-width="4"/>

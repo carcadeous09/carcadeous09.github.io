@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4096 4096" fill="none" stroke="currentColor" stroke-width="8">
-<circle cx="1460" cy="2048" r="1176"/>
-<circle cx="2636" cy="2048" r="1176"/>
-<line x1="1460" y1="2048" x2="2636" y2="2048" stroke-width="4"/>
-<circle cx="2048" cy="2048" r="8" fill="currentColor" stroke="none"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4096 4096" fill="none" stroke="currentColor"><circle cx="1460" cy="2048" r="1176" stroke-width="8"/><circle cx="2636" cy="2048" r="1176" stroke-width="8"/><line x1="2048" y1="1030" x2="2048" y2="3066" stroke-width="6"/><line x1="1460" y1="2048" x2="2636" y2="2048" stroke-width="6"/><path d="M 2048,1030 A 1176 1176 0 0 1 2048,3066 A 1176 1176 0 0 1 2048,1030 Z" stroke-width="10"/><circle cx="2048" cy="2048" r="160" stroke-width="4"/></svg>

@@ -81,6 +81,8 @@
         transition: none !important;
       }
       .seal-hex,
+      .seal-vesica,
+      .seal-sixfold,
       .seal-go3 {
         animation: none !important;
         transform: none !important;
@@ -312,6 +314,8 @@
     }
     .seal-go3,
     .seal-hex,
+    .seal-vesica,
+    .seal-sixfold,
     .seal-phi {
       position: absolute;
       pointer-events: none;
@@ -326,16 +330,18 @@
       animation: spin-rosette 180s linear infinite;
       z-index: 1;
     }
+    .seal-vesica,
+    .seal-sixfold,
     .seal-hex {
       inset: 0;
       width: 100%;
       height: 100%;
       color: #6e5110;
       mix-blend-mode: multiply;
-      opacity: 0.55;
       animation: spin-hex 180s linear infinite;
-      z-index: 2;
     }
+    .seal-vesica { opacity: 0.52; z-index: 2; }
+    .seal-sixfold, .seal-hex { opacity: 0.45; z-index: 3; }
     .seal-phi {
       inset: 0;
       width: 100%;
@@ -343,7 +349,7 @@
       color: #6e2c1c;
       mix-blend-mode: multiply;
       opacity: 0.4;
-      z-index: 2;
+      z-index: 4;
     }
     @keyframes spin-hex {
       to { transform: rotate(360deg); }
@@ -595,7 +601,7 @@
       .theme-btn, .skip, body::after { display: none; }
       body { background: white; color: black; }
       a { color: black; }
-      .seal-hex, .seal-go3 { animation: none; filter: none; mix-blend-mode: multiply; }
+      .seal-hex, .seal-vesica, .seal-sixfold, .seal-go3 { animation: none; filter: none; mix-blend-mode: multiply; }
     }
   </style>
 </head>
@@ -641,25 +647,30 @@
         <aside class="seal" aria-label="Founding covenant">
           <div class="seal-stage">
             <img class="seal-go3" src="go3_rosette.svg" width="4096" height="4096" alt="Dated receipt 2026-08-25. GO3 7-fold rosette reconstruct: 127-byte figure_source to 31755-byte SVG. Generative reconstruct, not vault gzip.">
-            <svg class="seal-hex" viewBox="0 0 4096 4096" aria-hidden="true" focusable="false">
-              <g fill="none" stroke="currentColor" stroke-width="8">
-                <circle cx="1460" cy="2048" r="1176"/>
-                <circle cx="2636" cy="2048" r="1176"/>
-                <circle cx="2048" cy="2048" r="808"/>
-                <circle transform="rotate(0 2048 2048)" cx="2048" cy="1240" r="808"/>
-                <circle transform="rotate(60 2048 2048)" cx="2048" cy="1240" r="808"/>
-                <circle transform="rotate(120 2048 2048)" cx="2048" cy="1240" r="808"/>
-                <circle transform="rotate(180 2048 2048)" cx="2048" cy="1240" r="808"/>
-                <circle transform="rotate(240 2048 2048)" cx="2048" cy="1240" r="808"/>
-                <circle transform="rotate(300 2048 2048)" cx="2048" cy="1240" r="808"/>
-                <polygon points="2048.0000,1240.0000 2747.7025,1644.0000 2747.7025,2452.0000 2048.0000,2856.0000 1348.2975,2452.0000 1348.2975,1644.0000"/>
-              </g>
+            <svg class="seal-vesica" viewBox="0 0 4096 4096" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+              <circle cx="1460" cy="2048" r="1176" stroke-width="8"/>
+              <circle cx="2636" cy="2048" r="1176" stroke-width="8"/>
+              <line x1="2048" y1="1030" x2="2048" y2="3066" stroke-width="6"/>
+              <line x1="1460" y1="2048" x2="2636" y2="2048" stroke-width="6"/>
+              <path d="M 2048,1030 A 1176 1176 0 0 1 2048,3066 A 1176 1176 0 0 1 2048,1030 Z" stroke-width="10"/>
+              <circle cx="2048" cy="2048" r="160" stroke-width="4"/>
+            </svg>
+            <svg class="seal-sixfold" viewBox="0 0 4096 4096" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+              <circle cx="2048" cy="2048" r="808" stroke-width="8"/>
+              <circle cx="2856" cy="2048" r="808" stroke-width="7"/>
+              <circle cx="2452" cy="2748" r="808" stroke-width="7"/>
+              <circle cx="1644" cy="2748" r="808" stroke-width="7"/>
+              <circle cx="1240" cy="2048" r="808" stroke-width="7"/>
+              <circle cx="1644" cy="1348" r="808" stroke-width="7"/>
+              <circle cx="2452" cy="1348" r="808" stroke-width="7"/>
+              <polygon points="2856,2048 2452,2748 1644,2748 1240,2048 1644,1348 2452,1348" stroke-width="8"/>
+              <circle cx="2048" cy="2048" r="1616" stroke-width="4"/>
             </svg>
             <svg class="seal-phi" viewBox="0 0 4096 4096" aria-hidden="true" focusable="false">
-              <g fill="none" stroke="currentColor" stroke-width="8">
-                <rect x="380.5" y="1017.5" width="3335" height="2061"/>
-                <rect x="380.5" y="1017.5" width="2061" height="2061"/>
-                <line x1="2441.5" y1="1017.5" x2="3715.5" y2="3078.5" stroke-width="4"/>
+              <g fill="none" stroke="currentColor">
+                <rect x="381" y="1018" width="3335" height="2061" stroke-width="6"/>
+                <line x1="381" y1="1018" x2="3716" y2="3079" stroke-width="3"/>
+                <line x1="3716" y1="1018" x2="381" y2="3079" stroke-width="3"/>
               </g>
             </svg>
           </div>
