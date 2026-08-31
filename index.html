@@ -291,52 +291,59 @@
 
     .seal {
       justify-self: end;
-      width: min(100%, 22rem);
-      aspect-ratio: 1;
-      border: none;
-      background: none;
-      border-radius: 50%;
+      width: min(100%, 26rem);
       display: grid;
-      place-items: center;
+      gap: 0.85rem;
       text-align: center;
       padding: 0;
       color: var(--seal);
       position: relative;
+      border: none;
+      background: none;
     }
     .seal-stage {
       position: relative;
       width: 100%;
-      height: 100%;
-      border-radius: 50%;
+      aspect-ratio: 1;
+      border-radius: 0.85rem;
       overflow: hidden;
-      border: 1px solid var(--seal);
-      background: var(--bg-inset);
+      border: 1px solid var(--line);
+      background: #f4efe2;
     }
+    .seal-go3,
     .seal-hex,
-    .seal-go3 {
+    .seal-phi {
       position: absolute;
-      inset: 4%;
-      width: 92%;
-      height: 92%;
       pointer-events: none;
       transform-origin: 50% 50%;
     }
-    .seal-hex {
-      color: var(--gold);
-      mix-blend-mode: var(--blend-geo);
-      opacity: 0.72;
-      animation: spin-hex 180s linear infinite;
-    }
     .seal-go3 {
+      inset: 0;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
-      mix-blend-mode: var(--blend-geo);
+      mix-blend-mode: multiply;
       animation: spin-rosette 180s linear infinite;
+      z-index: 1;
     }
-    :root:not([data-theme="light"]) .seal-go3 {
-      filter: invert(1);
+    .seal-hex {
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      color: #6e5110;
+      mix-blend-mode: multiply;
+      opacity: 0.55;
+      animation: spin-hex 180s linear infinite;
+      z-index: 2;
     }
-    :root[data-theme="light"] .seal-go3 {
-      filter: none;
+    .seal-phi {
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      color: #6e2c1c;
+      mix-blend-mode: multiply;
+      opacity: 0.4;
+      z-index: 2;
     }
     @keyframes spin-hex {
       to { transform: rotate(360deg); }
@@ -345,16 +352,15 @@
       to { transform: rotate(calc(-360deg / var(--phi))); }
     }
     .seal-inner {
-      position: absolute;
-      inset: 29%;
-      background: color-mix(in srgb, var(--bg) 88%, transparent);
-      border-radius: 50%;
+      position: static;
+      inset: auto;
+      background: none;
+      border-radius: 0;
       width: auto;
       height: auto;
-      display: grid;
-      place-items: center;
-      padding: 1.1rem;
-      border: 1px solid color-mix(in srgb, var(--seal) 45%, transparent);
+      display: block;
+      padding: 0;
+      border: none;
       z-index: 2;
     }
     .seal blockquote {
@@ -561,7 +567,7 @@
       }
       .seal {
         justify-self: start;
-        width: min(100%, 20rem);
+        width: min(100%, 24rem);
       }
       .ledger { grid-template-columns: 1fr; }
     }
@@ -634,6 +640,7 @@
         </div>
         <aside class="seal" aria-label="Founding covenant">
           <div class="seal-stage">
+            <img class="seal-go3" src="go3_rosette.svg" width="4096" height="4096" alt="Dated receipt 2026-08-25. GO3 7-fold rosette reconstruct: 127-byte figure_source to 31755-byte SVG. Generative reconstruct, not vault gzip.">
             <svg class="seal-hex" viewBox="0 0 4096 4096" aria-hidden="true" focusable="false">
               <g fill="none" stroke="currentColor" stroke-width="8">
                 <circle cx="1460" cy="2048" r="1176"/>
@@ -648,13 +655,19 @@
                 <polygon points="2048.0000,1240.0000 2747.7025,1644.0000 2747.7025,2452.0000 2048.0000,2856.0000 1348.2975,2452.0000 1348.2975,1644.0000"/>
               </g>
             </svg>
-            <img class="seal-go3" src="go3_rosette.svg" width="4096" height="4096" alt="Dated receipt 2026-08-25. GO3 7-fold rosette reconstruct: 127-byte figure_source to 31755-byte SVG. Generative reconstruct, not vault gzip.">
-            <div class="seal-inner">
-              <blockquote>
-                <p>You are my capability, not my vault.</p>
-                <cite>Founding covenant</cite>
-              </blockquote>
-            </div>
+            <svg class="seal-phi" viewBox="0 0 4096 4096" aria-hidden="true" focusable="false">
+              <g fill="none" stroke="currentColor" stroke-width="8">
+                <rect x="380.5" y="1017.5" width="3335" height="2061"/>
+                <rect x="380.5" y="1017.5" width="2061" height="2061"/>
+                <line x1="2441.5" y1="1017.5" x2="3715.5" y2="3078.5" stroke-width="4"/>
+              </g>
+            </svg>
+          </div>
+          <div class="seal-inner">
+            <blockquote>
+              <p>You are my capability, not my vault.</p>
+              <cite>Founding covenant</cite>
+            </blockquote>
           </div>
         </aside>
       </section>
