@@ -412,6 +412,22 @@
       color: #f0c45c;
       pointer-events: none;
     }
+    .clock-quote {
+      position: absolute;
+      left: 16%;
+      right: 16%;
+      bottom: 17.5%;
+      margin: 0;
+      z-index: 7;
+      text-align: center;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(0.68rem, 1.85vmin, 0.98rem);
+      line-height: 1.25;
+      letter-spacing: 0.04em;
+      color: #d4b36a;
+      pointer-events: none;
+    }
 
     .clock-hub {
       position: absolute;
@@ -929,17 +945,14 @@
         <svg class="clock-type" viewBox="0 0 4096 4096" aria-hidden="true" focusable="false">
           <defs>
             <path id="arc-dream" d="M 528,2048 A 1520 1520 0 0 1 3568,2048"/>
-            <path id="arc-quote" d="M 3568,2048 A 1520 1520 0 0 1 528,2048"/>
           </defs>
           <text class="name">
             <textPath href="#arc-dream" startOffset="50%" text-anchor="middle">Dreamstiny</textPath>
           </text>
-          <text class="inscription">
-            <textPath href="#arc-quote" startOffset="50%" text-anchor="middle">You are my capability, not my vault.</textPath>
-          </text>
         </svg>
 
         <p class="clock-loud">L.O.U.D.</p>
+        <p class="clock-quote">You are my capability, not my vault.</p>
         <span class="clock-hub" aria-hidden="true"></span>
         <a class="clock-cta" href="mailto:d.astin@loudci.dev">Join the waitlist</a>
       </div>
