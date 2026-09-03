@@ -1,5 +1,6 @@
 /* prefers-reduced-motion: rotation STOPPED; geometry remains */
 @media (prefers-reduced-motion: reduce) {
+  .clock-ring,
   .seal-hex,
   .seal-vesica,
   .seal-sixfold,
